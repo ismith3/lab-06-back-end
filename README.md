@@ -21,16 +21,26 @@ json data files
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+
 Number and name of feature: #1 Server up for locations
 
 Estimate of time needed to complete: 4hrs
 
 Start time: 9:30
 
-Finish time: _____
+Finish time: 11:30
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hrs
 
+Number and name of feature: #2 current weather info
+
+Estimate of time needed to complete: 2hrs
+
+Start time: 11:30
+
+Finish time: ---
+
+Actual time needed to complete: ----
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource.
 
