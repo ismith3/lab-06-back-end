@@ -15,8 +15,15 @@ app.listen(PORT, () => {
 
 // location
 app.get('/location', (request, response) => {
-  const location = convertToLatAndLong(request.query.data);
-  response.send(location);
+  try {
+    const location = convertToLatAndLong(request.query.data);
+    response.send(location);
+  }
+  catch(error) {
+    console.error(error);
+    response.status(500).send('Status: 500. So sorry, something went wrong.');
+  }
+
 });
 
 function convertToLatAndLong(query) {
@@ -34,8 +41,14 @@ function Location(query, geoData) {
 
 // weather
 app.get('/weather', (request, response) => {
-  const weather = getWeatherData(request.query.data);
-  response.send(weather);
+  try{
+    const weather = getWeatherData(request.query.data);
+    response.send(weather);
+  }
+  catch(error) {
+    console.error(error);
+    response.status(500).send('Status: 500. So sorry, something went wrong.');
+  }
 });
 
 function getWeatherData(query) {
@@ -72,7 +85,7 @@ function demistify(UNIX_timestamp){
   var month = months[a.getMonth()];
   var date = a.getDate();
   var hour = a.getHours();
-  var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes(); 
+  var min = a.getMinutes() < 10 ? '0' + a.getMinutes() : a.getMinutes();
   var sec = a.getSeconds() < 10 ? '0' + a.getSeconds() : a.getSeconds();
   var time = month + ' ' + date + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
   return time;
